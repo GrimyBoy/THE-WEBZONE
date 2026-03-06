@@ -3,14 +3,14 @@
 <html style="background-image: url(https://thewebzone.neocities.org/stars%20GIF.gif);">
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+ <head>
 <title>THE WEBZONE</title> 
 
-<head>
-  <link rel+:icon" type="image/x-icon" href=:https://thewebzone.neocities.org/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://thewebzone.neocities.org/favicon.ico">
     <style>
-      .container {display: flex;}
+      .container {display: flex; flex-direction:row;}
       .item {display:flex; flex-direction:column; }
+      .webring {display: flex; order:2;}
       h1   {color: #D3C6AA;}
       p    {color: #D3C6AA;}
       .testbtn {
@@ -21,21 +21,47 @@
         border: none;
         border-radius: 5px;
         cursor: pointer; }
-        .testbtn:hover {background-color: #DF69BA;}
-        .buttoncontain{display:grid;
+      .testbtn:hover {background-color: #DF69BA;}
+      .buttoncontain{display:grid;
         place-items:center;}
+      a:link {color:#1E2326;}
+      a:visited {color:#1E2326;}
       </style>
-      
+      <!--this is the beginning of the webring code!-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script> var NeocitiesURL = "https://thewebzone.neocities.org/"; 
+    $.getJSON(NeocitiesURL+"webring.json", function(json) {
+      let members = Object.keys(json)
+      var GetCurrent =  window.location.hostname;
+      var next = members[(members.indexOf(GetCurrent[0]) + 1) % members.length];
+      var prev = members[(members.indexOf(GetCurrent[0]) - 1) % members.length];
+      if(!prev){
+         var prev = members[(members.indexOf(GetCurrent[0]) + 2) % members.length];
+            console.log(prev)
+      }
+      if(!next){
+        var next = members[(members.indexOf(GetCurrent[0]) - 2) % members.length];
+      }
+      if(prev){
+        $("#prev").html('<a href="'+json[prev]+'" alt="'+prev+'">[Previous] '+prev+'</a>');
+      }
+      if(next){
+          $("#next").html('<a href="'+json[next]+'" alt="'+next+'">'+next+' [Next]</a>');
+      }
+
+});</script>
+      <!--this is the end of the webring code!-->
+
 </head>
 <body>
   <div class="container"> <!--container div-->
-      <div class="item"; style="margin:auto">
+      <div class="item" style="margin:auto">
       <!--div 1-->
       </div>
-          <div  class="item" style="background-color: #2E383C ; border:2px dotted #D699B6; width:450px"; > <!--div 2-->
+          <div  class="item" style="background-color: #2E383C ; border:2px dotted #D699B6; width:450px" > <!--div 2-->
           <h1 style="text-align:Center ">WELCEOME TO <br>THE WEBZONE</h1>
           </div>
-      <div class="item"; style="margin:auto">
+      <div class="item" style="margin:auto">
       <!--div 3-->
       </div> 
   </div>
@@ -48,6 +74,20 @@
         </button>
     </form>
   </div>
-    <br>
+<br>
+<div class="container" style="height:150px"></div>
+  <p style="text-align:center"> Baby's first webring:</p>
+<div class="container">
+
+        <div class="item" style="margin:auto"></div>
+
+<div style="width:200px class="item" id="webring" >
+<button class="testbtn"><span id="prev"></span></button>
+::
+<button class="testbtn"><span id="next"></span></button>
+</div>
+      <div class="item" style="margin:auto"></div>
+
+<br>
     </body>
 </html> 
