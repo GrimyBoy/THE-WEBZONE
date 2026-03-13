@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html style="height:100%;
+background-image: url(https://thewebzone.neocities.org/stars%20GIF.gif);
+background-attachment: fixed;">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <head>
+<title>THE WEBZONE</title> 
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+      <!--this is the beginning of the webring code!-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script> var NeocitiesURL = "https://thewebzone.neocities.org/"; 
+    $.getJSON(NeocitiesURL+"webring.json", function(json) {
+      let members = Object.keys(json)
+      var GetCurrent =  window.location.hostname;
+      var next = members[(members.indexOf(GetCurrent[0]) + 1) % members.length];
+      var prev = members[(members.indexOf(GetCurrent[0]) - 1) % members.length];
+      if(!prev){
+         var prev = members[(members.indexOf(GetCurrent[0]) + 2) % members.length];
+            console.log(prev)
+      }
+      if(!next){
+        var next = members[(members.indexOf(GetCurrent[0]) - 2) % members.length];
+      }
+      if(prev){
+        $("#prev").html('<a href="'+json[prev]+'" alt="'+prev+'">[Previous] '+prev+'</a>');
+      }
+      if(next){
+          $("#next").html('<a href="'+json[next]+'" alt="'+next+'">'+next+' [Next]</a>');
+      }
+
+});</script>
+      <!--this is the end of the webring code!-->
+
+</head>
+<body>
+<div id="canvas">
+  
+  <!--webzone logo-->
+  <div class="container">  
+    <img src="webzone.svg" height="256px" width="512px">
+  </div>
+<div class="marquee-container">
+  <div class="marquee">
+    <div class="card">Welcome to THE WEBZONE.</div>
+    <div class="card"><img height="30px" width="30 px" src="ufo.gif"></div>
+    <div class="card">This is THE WEBZONE.</div>
+  </div>
+  <div aria-hidden class="marquee">
+    <div class="card">Welcome to THE WEBZONE.</div>
+    <div class="card"><img height="30px" width="30 px" src="ufo.gif"></div>
+    <div class="card">This is THE WEBZONE.</div>
+  </div>
+</div>
+    <!--webzone content-->
+      <div class="post" style="background-color: rgba(30, 35, 30, 0.5); "> 
+         <p style="text-align:center; font-size:18px">Greetings and salutations, my name is Jack and this is the Webzone. Welcome. 
+<br>
+         <br>The Webzone is my personal blog, a bulletin of all my favorite things, and the stream of conciousness of my caffiene addled brain.</p></div>
+
+<br>
+<!--nav Bar-->
+  <nav class="post">
+    <ul  style="max-height: 0px">
+      <li><a  href="https://thewebzone.neocities.org/aboutme">ABOUT ME</a></li>
+      <li><a  href="https://thewebzone.neocities.org">EXIT THE WEBZONE</a></li>
+      <li><a  href="https://thewebzone.neocities.org/tbd">THE BLOG DUNGEON</a></li>
+      
+    </ul>
+  </nav>
+  
+<br>
+<!--webring buttons-->
+  <div class="container" style="height:100px"></div>
+  
+    <p style="text-align:center"> Baby's first webring:</p>
+    
+<div class="container">
+    <div><button class="testbtn"><span id="prev"></span></button></div>
+: :
+    <div><button class="testbtn"><span id="next"></span></button></div>
+</div>
+
+<br>
+</div>
+    </body>
+</html> 

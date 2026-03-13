@@ -1,0 +1,135 @@
+body,html{
+    height: 100%;
+}
+h1,h2   {
+  color: #D3C6AA;
+}
+      
+p    {
+  color: #D3C6AA;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(30, 35, 30, 0.5);
+  position: relative;
+  height:40px ;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+nav ul{
+  display: flex;
+  gap:50px ;
+  align-items: center;
+}
+
+nav ul li{
+  list-style-type:none ;
+}
+
+nav ul li a{
+  text-decoration:none  ;
+  color: #D3C6AA;
+  white-space: nowrap;
+}
+
+nav ul li a:hover{
+  text-decoration:none;
+  color: #ae66c9;
+}
+
+a:link {
+  color:#D3C6AA;
+}
+      
+a:visited {
+  color:#D3C6AA;
+}
+        
+img {
+  height: auto; 
+  margin: auto;
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.content{
+  display:flex;
+justify-content: center;
+  align-items: center;
+
+}
+      
+.post {
+  display:flex; 
+  flex-direction:column; 
+  border:20px solid transparent; 
+  padding:15px; 
+  overflow-x: hiddden;
+  overflow-y: auto;
+  border-image:url(https://thewebzone.neocities.org/border.png) 16 round; 
+}
+
+.testbtn {
+  background-color: #ae66c9;
+  color: #1E2326;
+  font-size: 15px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; 
+}
+      
+.testbtn:hover {
+  background-color: #DF69BA;
+}
+.marquee-container {
+  display: flex;
+  max-width: 50%;
+margin: auto;
+overflow-x: auto;
+scrollbar-width: none;
+}
+.marquee-container::-weebkit-scrollbar{
+  display:none;
+}
+.marquee{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  animation: spin 5s infinite linear;
+  padding-right: 1em;
+}
+.card{
+  flex: 0 0 1em;
+  height: 1em;
+  padding: 1em;
+  Font-size:24px;
+  text-align: center;
+  align-content: center;
+  color:#D3C6AA;
+  white-space: nowrap;
+}
+
+@keyframes spin{
+  from {translate: 0;}
+  to {translate: -100%}
+}
+#canvas {
+   max-width:80% ;
+   margin:0 auto;
+}
+#borderimg2 {
+  border: 10px solid transparent;
+  padding: 15px;
+}
+
